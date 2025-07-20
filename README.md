@@ -38,3 +38,23 @@ npm run dev
 🧪 API Testing
 5.Use Postman. Import this:
 /postman/TaskFlow.postman_collection.json
+## 🗄️ Database Schema
+
+### Users Table
+| Column     | Type         | Description            |
+|------------|--------------|------------------------|
+| id         | INT (PK)     | Auto-incremented ID    |
+| name       | VARCHAR(100) | User full name         |
+| email      | VARCHAR(100) | Unique email           |
+| password   | VARCHAR(255) | Hashed password        |
+| role       | ENUM         | 'admin', 'member'      |
+
+### Projects Table
+| Column     | Type         | Description            |
+|------------|--------------|------------------------|
+| id         | INT (PK)     | Project ID             |
+| name       | VARCHAR(100) | Project name           |
+| owner_id   | INT (FK)     | Refers `users(id)`     |
+| ...        | ...          | ...                    |
+
+📝 Full table creation and data can be found in [`db/setup.sql`](db/setup.sql)
